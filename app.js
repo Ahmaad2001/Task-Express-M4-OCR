@@ -13,17 +13,6 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use("/ocr", ocrRoutes);
 
-app.use((req, res, next) => {
-  res.status(404).json({ message: "Path not found" });
-});
-
-app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.json({
-    message: err.message || "Internal Server Error",
-  });
-});
-
 app.use(notFoundHandler);
 app.use(errorHandler);
 
