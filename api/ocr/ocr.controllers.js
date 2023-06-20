@@ -1,3 +1,5 @@
+const Ocr = require("../../models/Ocr");
+
 exports.ocrCreate = async (req, res, next) => {
   try {
     if (req.file) {
