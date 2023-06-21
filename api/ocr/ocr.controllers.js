@@ -5,9 +5,9 @@ exports.ocrCreate = async (req, res, next) => {
     if (req.file) {
       req.body.image = `${req.file.path}`;
     }
-    const newOcr = await Ocr.Create(req.body);
+    const newOcr = await Ocr.create(req.body);
     res.status(201).json(newOcr);
   } catch (error) {
-    next(error);
+    return next(error);
   }
 };
